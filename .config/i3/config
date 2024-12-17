@@ -621,4 +621,5 @@ exec_always --no-startup-id ~/apps/xborder/venv/bin/python ~/apps/xborder/xborde
 # Polybar
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 
-
+# redshift
+exec_always --no-startup-id redshift
