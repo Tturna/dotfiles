@@ -624,3 +624,13 @@ exec_always --no-startup-id picom --config  ~/.config/picom/picom.conf
 
 # bind for wacom pen mode toggle using tablet button 1
 bindsym Control+Shift+y exec --no-startup-id ~/.config/tturna/wacom-togglemode.sh
+
+# Fix active window borders with xborder
+exec_always --no-startup-id ~/apps/xborder/venv/bin/python ~/apps/xborder/xborders -c ~/.config/xborder/xborder.config.json
+
+# Polybar
+exec_always --no-startup-id ~/.config/polybar/launch.sh
+
+# redshift
+exec_always --no-startup-id redshift
+
