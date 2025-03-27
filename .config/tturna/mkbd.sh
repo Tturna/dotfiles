@@ -11,5 +11,5 @@ if [[ $? == 0 ]] then
     xinput --set-prop 13 320 1
 else
     # on desktop
-    xinput --set-prop 13 156 1.5 0 0 0 1.5 0 0 0 1
+    xinput --set-prop 15 156 1.5 0 0 0 1.5 0 0 0 1
 fi

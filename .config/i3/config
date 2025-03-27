@@ -409,6 +409,13 @@ exec --no-startup-id /usr/bin/dunst
 #exec --no-startup-id sleep 7 && firefox https://github.com/endeavouros-team/endeavouros-i3wm-setup/blob/main/force-knowledge.md
 #exec --no-startup-id sleep 3 && thunar
 exec --no-startup-id ~/.config/tturna/mkbd.sh
+exec --no-startup-id ~/.config/tturna/wacom.sh
+
+# Fix active window borders with xborder
+exec_always --no-startup-id ~/apps/xborder/venv/bin/python ~/apps/xborder/xborders -c ~/.config/xborder/xborder.config.json
+
+# Polybar
+exec_always --no-startup-id ~/.config/polybar/launch.sh
 
 ###############
 # system tray #
@@ -615,10 +622,5 @@ bindsym $mod+d exec --no-startup-id rofi -modi drun -show drun \
 # for custom config:
 exec_always --no-startup-id picom --config  ~/.config/picom/picom.conf
 
-# Fix active window borders with xborder
-exec_always --no-startup-id ~/apps/xborder/venv/bin/python ~/apps/xborder/xborders -c ~/.config/xborder/xborder.config.json
-
-# Polybar
-exec_always --no-startup-id ~/.config/polybar/launch.sh
-
-
+# bind for wacom pen mode toggle using tablet button 1
+bindsym Control+Shift+y exec --no-startup-id ~/.config/tturna/wacom-togglemode.sh
