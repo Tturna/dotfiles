@@ -30,7 +30,7 @@ require("lazy").setup({
     { 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate'},
     {
         'nvim-telescope/telescope.nvim',
-	tag = '0.1.8',
+        tag = '0.1.8',
         dependencies = { 'nvim-lua/plenary.nvim' }
     },
     { 'mbbill/undotree' },
@@ -50,10 +50,28 @@ require("lazy").setup({
     { 'saadparwaiz1/cmp_luasnip' },
     {
 	    "L3MON4D3/LuaSnip",
-	    -- follow latest release.
 	    version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
-	    -- install jsregexp (optional!).
+        dependencies = { "rafamadriz/friendly-snippets" },
 	    build = "make install_jsregexp"
+    },
+
+    {
+        "folke/which-key.nvim",
+        event = "VeryLazy",
+        opts = {
+            -- your configuration comes here
+            -- or leave it empty to use the default settings
+            -- refer to the configuration section below
+        },
+        keys = {
+            {
+                "<leader>?",
+                function()
+                    require("which-key").show({ global = false })
+                end,
+                desc = "Buffer Local Keymaps (which-key)",
+            },
+        },
     },
 
     -- Theme
