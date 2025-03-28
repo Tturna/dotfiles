@@ -411,12 +411,6 @@ exec --no-startup-id /usr/bin/dunst
 exec --no-startup-id ~/.config/tturna/mkbd.sh
 exec --no-startup-id ~/.config/tturna/wacom.sh
 
-# Fix active window borders with xborder
-exec_always --no-startup-id ~/apps/xborder/venv/bin/python ~/apps/xborder/xborders -c ~/.config/xborder/xborder.config.json
-
-# Polybar
-exec_always --no-startup-id ~/.config/polybar/launch.sh
-
 ###############
 # system tray #
 ###############
