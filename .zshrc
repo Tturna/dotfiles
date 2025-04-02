@@ -63,6 +63,9 @@ bindkey "^[[B" history-search-forward
 bindkey "^[[1;5D" backward-word
 bindkey "^[[1;5C" forward-word
 
+# keyboard layouts
+setxkbmap -layout fi,ru -variant nodeadkeys, -option grp:win_space_toggle
+
 # completion styling
 # more about the styling of the completion system: https://zsh.sourceforge.io/Doc/Release/Completion-System.html#index-completion-system_002c-styles
 #
