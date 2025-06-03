@@ -17,6 +17,9 @@ export DOTNET_ROOT="$HOME/.dotnet"
 export PATH="/home/tturna/.local/bin:$PATH:$DOTNET_ROOT:$DOTNET_ROOT/tools"
 export DOTNET_CLI_TELEMETRY_OPTOUT=true
 
+export MGFXC_WINE_PATH="/home/tturna/.winemonogame"
+export PATH="$PATH:$MGFXC_WINE_PATH"
+
 ZINIT_HOME="${HOME}/.local/share/zinit/zinit.git"
 
 # This bit was mostly made by the zinit install script. I changed it so it uses the ZINIT_HOME variable. 
