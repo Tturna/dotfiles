@@ -1,5 +1,6 @@
 vim.g.mapleader = " "
-vim.keymap.set("n", "<C-p>", vim.cmd.Ex)
+-- vim.keymap.set("n", "<C-p>", vim.cmd.Ex)
+vim.keymap.set("n", "<C-p>", vim.cmd.Oil)
 
 --[[
 -- Move selected lines up or down. This works using the move command.
