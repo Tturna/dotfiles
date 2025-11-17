@@ -68,18 +68,43 @@ vim.keymap.set("n", "<C-z>", "<Nop>")
 
 -- Autocmd to apply mappings only in Netrw buffer
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = "netrw",
-  callback = function()
-    -- Check if the 't' key mapping exists before deleting it
-    local has_mapping = vim.fn.maparg("t", "n") ~= ""
-    if has_mapping then
-      vim.api.nvim_buf_del_keymap(0, "n", "t")
-    end
-  end,
+    pattern = "netrw",
+    callback = function()
+        -- Check if the 't' key mapping exists before deleting it
+        local has_mapping = vim.fn.maparg("t", "n") ~= ""
+        if has_mapping then
+            vim.api.nvim_buf_del_keymap(0, "n", "t")
+        end
+    end,
 })
 
 -- custom logic
 local utils = require("tturna.custom_logic.utils")
 vim.keymap.set("n", "<leader>f", utils.Easy_f_forward)
+
+vim.keymap.set("n", "<leader>r", function()
+    -- when rename opens the prompt, this autocommand will trigger
+    -- it will "press" CTRL-F to enter the command-line window `:h cmdwin`
+    -- in this window I can use normal mode keybindings
+    local cmdId
+    cmdId = vim.api.nvim_create_autocmd({ "CmdlineEnter" }, {
+        callback = function()
+            local key = vim.api.nvim_replace_termcodes("<C-f>", true, false, true)
+            vim.api.nvim_feedkeys(key, "c", false)
+            vim.api.nvim_feedkeys("0", "n", false)
+            -- autocmd was triggered and so we can remove the ID and return true to delete the autocmd
+            cmdId = nil
+            return true
+        end,
+    })
+    vim.lsp.buf.rename()
+    -- if LPS couldn't trigger rename on the symbol, clear the autocmd
+    vim.defer_fn(function()
+        -- the cmdId is not nil only if the LSP failed to rename
+        if cmdId then
+            vim.api.nvim_del_autocmd(cmdId)
+        end
+    end, 500)
+end, { silent = true, desc = "Rename symbol" })
 
 -- there might be more keymappings in plugin lua files

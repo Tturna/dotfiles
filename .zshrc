@@ -13,7 +13,7 @@ alias calc='galculator'
 
 export EDITOR="nvim"
 
-export DOTNET_ROOT="$HOME/.dotnet"
+export DOTNET_ROOT=/usr/share/dotnet/
 export PATH="/home/tturna/.local/bin:$PATH:$DOTNET_ROOT:$DOTNET_ROOT/tools"
 export DOTNET_CLI_TELEMETRY_OPTOUT=true
 

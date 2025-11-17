@@ -413,6 +413,7 @@ exec --no-startup-id /usr/bin/dunst
 #exec --no-startup-id sleep 3 && thunar
 exec --no-startup-id ~/.config/tturna/mkbd.sh
 exec --no-startup-id ~/.config/tturna/wacom.sh
+exec --no-startup-id ~/.config/tturna/displays.sh
 
 ###############
 # system tray #
